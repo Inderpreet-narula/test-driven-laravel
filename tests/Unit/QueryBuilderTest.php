@@ -19,4 +19,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('select * from products', $sql->select('products'));
     }
+    
+    public function testSelectSpecificColumns() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select id, name from products', $sql->select('products', ['id', 'name']));
+    }
 }
