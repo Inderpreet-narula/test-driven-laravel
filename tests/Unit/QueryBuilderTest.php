@@ -39,4 +39,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('SELECT id, name FROM products ORDER BY id DESC', $sql->select('products', ['id', 'name'], ['id', 'DESC']));
     }
+    
+    public function testSelectAllWithLimit() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select * from products limit 10', $sql->select('products', 10));
+    }
 }
