@@ -18,6 +18,9 @@ class QueryBuilderComponent{
         if (count($option_1) && count($option_2)) {
             return "select ". implode(', ', $option_1)." from $table order by ". implode(' ',$option_2);
         }
+        if (count($option_1) && gettype($option_1[0]) === 'integer') {
+            return "select * from $table limit $option_1[0] offset $option_1[1]";
+        }
         if (count($option_1)) {
             return "select ". implode(', ', $option_1)." from $table";
         }

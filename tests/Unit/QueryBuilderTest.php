@@ -44,4 +44,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('select * from products limit 10', $sql->select('products', 10));
     }
+    
+    public function testSelectAllWithLimitAndOffset() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select * from products limit 6 offset 5', $sql->select('products', [6, 5]));
+    }
 }
