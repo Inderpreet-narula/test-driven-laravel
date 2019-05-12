@@ -22,7 +22,7 @@ class QueryBuilderComponent{
             return "select * from $table limit $option_1[0] offset $option_1[1]";
         }
         if (count($option_1) && $option_1[0] == 'count') {
-            return "select *, count(\"id\") from $table";
+            return "select *, count(\"$option_1[1]\") from $table";
         }
         if (count($option_1)) {
             return "select ". implode(', ', $option_1)." from $table";
