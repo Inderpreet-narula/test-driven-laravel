@@ -59,4 +59,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('select max(\'cost\') from products', $sql->select('products', ['max','cost']));
     }
+    
+    public function testSelectMaxColumnWithGroupBy() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select max(\'cost\') from products group by cost', $sql->select('products', ['group by','cost']));
+    }
 }
