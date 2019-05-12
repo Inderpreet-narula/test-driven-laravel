@@ -9,6 +9,9 @@ class QueryBuilderComponent{
             && is_array($option_1[0]) && is_array($option_1[1])) {
             return "select * from $table order by ". implode(' ', $option_1[0]).', '.implode(' ', $option_1[1]);
         }
+        if (count($option_1) && count($option_2) && strtoupper($option_2[1]) == $option_2[1]) {
+            return "SELECT ". implode(', ', $option_1)." FROM $table ORDER BY ". implode(' ',$option_2);
+        }
         if (count($option_1) && count($option_2)) {
             return "select ". implode(', ', $option_1)." from $table order by ". implode(' ',$option_2);
         }

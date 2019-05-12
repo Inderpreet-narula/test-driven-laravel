@@ -34,4 +34,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('select * from products order by name asc, category asc', $sql->select('products', [['name', 'asc'],['category','asc']]));
     }
+    
+    public function testSelectSpecificColumnsWithOrderByAndCapitalizedKeyword() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('SELECT id, name FROM products ORDER BY id DESC', $sql->select('products', ['id', 'name'], ['id', 'DESC']));
+    }
 }
