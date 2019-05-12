@@ -24,6 +24,9 @@ class QueryBuilderComponent{
         if (count($option_1) && $option_1[0] == 'count') {
             return "select *, count(\"$option_1[1]\") from $table";
         }
+        if (count($option_1) && $option_1[0] == 'max') {
+            return "select max('$option_1[1]') from $table";
+        }
         if (count($option_1)) {
             return "select ". implode(', ', $option_1)." from $table";
         }

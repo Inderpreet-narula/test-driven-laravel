@@ -55,8 +55,8 @@ class QueryBuilderTest extends TestCase
         $this->assertEquals('select *, count("id") from products', $sql->select('products', ['count','id']));
     }
     
-//    public function testSelectMaxColumn() {
-//        $sql = new QueryBuilderComponent;
-//        $this->assertEquals('select max(\'cost\') from products', $sql->select('products', ['max','cost']));
-//    }
+    public function testSelectMaxColumn() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select max(\'cost\') from products', $sql->select('products', ['max','cost']));
+    }
 }
