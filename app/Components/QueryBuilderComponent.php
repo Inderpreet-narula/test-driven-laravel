@@ -4,12 +4,16 @@ namespace App\Components;
 
 class QueryBuilderComponent{
     
-    public function select($table, $columns = [], $order_by = []) {
-        if (count($columns) && count($order_by)) {
-            return "select ". implode(', ', $columns)." from $table order by ". implode(' ',$order_by);
+    public function select($table, $option_1 = [], $option_2 = []) {
+        if (count($option_1) && !count($option_2)
+            && is_array($option_1[0]) && is_array($option_1[1])) {
+            return "select * from $table order by ". implode(' ', $option_1[0]).', '.implode(' ', $option_1[1]);
         }
-        if (count($columns)) {
-            return "select ". implode(', ', $columns)." from $table";
+        if (count($option_1) && count($option_2)) {
+            return "select ". implode(', ', $option_1)." from $table order by ". implode(' ',$option_2);
+        }
+        if (count($option_1)) {
+            return "select ". implode(', ', $option_1)." from $table";
         }
         return "select * from $table";
     }
