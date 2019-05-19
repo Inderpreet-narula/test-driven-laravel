@@ -44,6 +44,9 @@ class QueryBuilderComponent{
     
     public function insert($table, $columns, $values)
     {
+        if (is_countable($columns) && is_countable($values) && is_countable($values[0])) {
+            return "INSERT INTO $table(".implode(', ',$columns).") VALUES(".implode(', ',$values[0])."), (".implode(', ',$values[1]).")";
+        }
         return "INSERT INTO $table(".implode(', ',$columns).") VALUES(".implode(', ',$values).")";
     }
 }
