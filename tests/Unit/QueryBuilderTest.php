@@ -64,4 +64,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('select max(\'cost\') from products group by cost', $sql->select('products', ['group by','cost']));
     }
+    
+    public function testSelectDistinctColumn() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('select DISTINCT \'name\' from products', $sql->select('products', ['DISTINCT','name']));
+    }
 }

@@ -30,6 +30,9 @@ class QueryBuilderComponent{
         if (count($option_1) && $option_1[0] == 'group by') {
             return "select max('$option_1[1]') from $table group by $option_1[1]";
         }
+        if (count($option_1) && $option_1[0] == 'DISTINCT') {
+            return "select DISTINCT '$option_1[1]' from $table";
+        }
         if (count($option_1)) {
             return "select ". implode(', ', $option_1)." from $table";
         }
