@@ -8,6 +8,9 @@ class QueryBuilderComponent{
         if (gettype($option_1) === 'integer' && !count($option_2)) {
             return "select * from $table limit $option_1";
         }
+        if (gettype($option_1) === 'string' && count($option_2)) {
+            return "select * from $table join $option_1 on $table.$option_2[1]=$option_1.$option_2[0]";
+        }
         if (count($option_1) && !count($option_2)
             && is_array($option_1[0]) && is_array($option_1[1])) {
             return "select * from $table order by ". implode(' ', $option_1[0]).', '.implode(' ', $option_1[1]);
