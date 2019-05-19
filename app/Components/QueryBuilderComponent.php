@@ -41,4 +41,9 @@ class QueryBuilderComponent{
         }
         return "select * from $table";
     }
+    
+    public function insert($table, $columns, $values)
+    {
+        return "INSERT INTO $table(".implode(', ',$columns).") VALUES(".implode(', ',$values).")";
+    }
 }
