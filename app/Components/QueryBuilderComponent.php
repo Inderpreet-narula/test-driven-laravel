@@ -52,6 +52,9 @@ class QueryBuilderComponent{
     
     public function update($table, $update_data, $condition)
     {
+        if (gettype($update_data[1]) == 'string') {
+            return "UPDATE $table SET $update_data[0] = \"$update_data[1]\" WHERE $condition[0] = \"$condition[1]\"";            
+        }
         return "UPDATE $table SET $update_data[0] = $update_data[1] WHERE $condition[0] = \"$condition[1]\"";
     }
 }

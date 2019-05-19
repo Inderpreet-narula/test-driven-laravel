@@ -94,4 +94,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('UPDATE products SET cost = 200 WHERE name = "apple"', $sql->update('products', ["cost", 200], ["name", "apple"]));
     }
+    
+    public function testUpdateAll() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('UPDATE products SET color = "black" WHERE color = "red"', $sql->update('products', ["color", "black"], ["color", "red"]));
+    }
 }
