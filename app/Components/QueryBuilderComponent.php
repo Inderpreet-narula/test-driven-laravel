@@ -49,4 +49,9 @@ class QueryBuilderComponent{
         }
         return "INSERT INTO $table(".implode(', ',$columns).") VALUES(".implode(', ',$values).")";
     }
+    
+    public function update($table, $update_data, $condition)
+    {
+        return "UPDATE $table SET $update_data[0] = $update_data[1] WHERE $condition[0] = \"$condition[1]\"";
+    }
 }

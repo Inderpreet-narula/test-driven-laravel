@@ -85,8 +85,13 @@ class QueryBuilderTest extends TestCase
         $this->assertEquals('INSERT INTO products(id, name, cost, color) VALUES(1, apple, 100, red), (2, orange, 50, orange)', $sql->insert('products', ["id","name","cost","color"], [[1, "apple", 100, "red"],[2, "orange", 50, "orange"]] ));
     }
     
-    public function insertWithDefaultValue() {
+    public function testInsertWithDefaultValue() {
         $sql = new QueryBuilderComponent;
-        $this->assertEquals('INSERT INTO products("id","name", "cost", "color") VALUES(1,"apple", 100, DEFAULT)', $sql->insert('products', ["id","name","cost","color"], [1, "apple", 100, 'DEFAULT']));
+        $this->assertEquals('INSERT INTO products(id, name, cost, color) VALUES(1, apple, 100, DEFAULT)', $sql->insert('products', ["id","name","cost","color"], [1, "apple", 100, 'DEFAULT']));
+    }
+    
+    public function testUpdateRow() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('UPDATE products SET cost = 200 WHERE name = "apple"', $sql->update('products', ["cost", 200], ["name", "apple"]));
     }
 }
