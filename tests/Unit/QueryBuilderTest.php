@@ -84,4 +84,9 @@ class QueryBuilderTest extends TestCase
         $sql = new QueryBuilderComponent;
         $this->assertEquals('INSERT INTO products(id, name, cost, color) VALUES(1, apple, 100, red), (2, orange, 50, orange)', $sql->insert('products', ["id","name","cost","color"], [[1, "apple", 100, "red"],[2, "orange", 50, "orange"]] ));
     }
+    
+    public function insertWithDefaultValue() {
+        $sql = new QueryBuilderComponent;
+        $this->assertEquals('INSERT INTO products("id","name", "cost", "color") VALUES(1,"apple", 100, DEFAULT)', $sql->insert('products', ["id","name","cost","color"], [1, "apple", 100, 'DEFAULT']));
+    }
 }
