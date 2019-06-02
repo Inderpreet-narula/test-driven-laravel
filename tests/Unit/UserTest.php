@@ -16,6 +16,12 @@ class UserTest extends ParentTestClass
      *
      * @return void
      */
+    
+    public function getUser() {
+        $user = User::whereNotNull('id')->first();
+        return $user;
+    }
+    
     public function testExample()
     {
         $this->assertTrue(true);
@@ -29,5 +35,15 @@ class UserTest extends ParentTestClass
         $user->password = $this->faker->password;
         $user->save();
         $this->assertInstanceOf(User::class, $user);
+    }
+    
+    public function testValidateIncorrectEmail()
+    {
+        $user = self::getUser();
+        $user->name = $this->faker->name;
+        $user->email = $this->faker->word;
+        $user->password = $this->faker->password;
+        $user->save();
+        $this->assertArrayHasKey('email', $user->getErrors()->toArray());
     }
 }
