@@ -106,4 +106,22 @@ class UserTest extends ParentTestClass
     {
         throw_if($a == 'a', new \InvalidArgumentException);
     }
+    
+    /**
+     * @depends testA
+     * @depends testB
+     */    
+    public function equationProvider($a, $b)
+    {
+        return [[$a, 'a'],
+                [$b, 'b']];
+    }
+    
+    /**
+     * @dataProvider equationProvider
+     */    
+    public function testValuesToBeEqual($argument, $expected_result)
+    {
+        $this->assertEquals($expected_result, $argument);
+    }
 }
