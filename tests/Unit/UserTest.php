@@ -46,4 +46,16 @@ class UserTest extends ParentTestClass
         $user->save();
         $this->assertArrayHasKey('email', $user->getErrors()->toArray());
     }
+    
+    public function testUniqueNamePasswordLimit()
+    {
+        $user = new User;
+        $existing_user = self::getUser();
+        $user->name = $existing_user->name;
+        $user->email = $this->faker->safeEmail;
+        $user->password = $this->faker->password(10);
+        $user->save();
+        $this->assertArrayHasKey('name', $user->getErrors()->toArray());
+        $this->assertArrayHasKey('password', $user->getErrors()->toArray());
+    }
 }

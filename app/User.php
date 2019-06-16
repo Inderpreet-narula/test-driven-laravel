@@ -39,6 +39,8 @@ class User extends BaseModel
     
     public static $rules = [
         'email' => 'required|email',
+        'name' => 'unique:users',
+        'password' => 'between:6,8',
     ];
     
     protected static $messages = [
