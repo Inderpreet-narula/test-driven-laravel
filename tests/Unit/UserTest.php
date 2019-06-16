@@ -96,4 +96,14 @@ class UserTest extends ParentTestClass
         $this->assertEquals('a', $a);
         $this->assertEquals('b', $b);
     }
+    
+    /**
+     * @depends testA
+     * @depends testB
+     * @expectedException InvalidArgumentException
+     */
+    public function testD($a, $b)
+    {
+        throw_if($a == 'a', new \InvalidArgumentException);
+    }
 }
