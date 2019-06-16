@@ -73,4 +73,27 @@ class UserTest extends ParentTestClass
         $product->save();
         $this->assertInstanceOf(Product::class, $product);
     }
+    
+    public function testA()
+    {
+        $this->assertTrue(true);
+        return 'a';
+    }
+    
+    public function testB()
+    {
+        $this->assertTrue(true);
+        return 'b';
+    }
+    
+    /**
+     * @depends testA
+     * @depends testB 
+     */
+    
+    public function testC($a, $b)
+    {
+        $this->assertEquals('a', $a);
+        $this->assertEquals('b', $b);
+    }
 }
