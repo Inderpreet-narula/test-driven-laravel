@@ -4,7 +4,7 @@ steps:
   args: [
     'build', 
     '-t', 
-    'gcr.io/$PROJECT_IDt/est_project', 
+    'gcr.io/$PROJECT_IDt/test_project', 
     '.'
     ]
   # push the container image to Container Registry
