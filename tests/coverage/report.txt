@@ -1,0 +1,28 @@
+
+
+Code Coverage Report:     
+  2020-01-29 05:37:31     
+                          
+ Summary:                 
+  Classes: 44.44% (8/18)  
+  Methods: 57.58% (19/33) 
+  Lines:   70.37% (76/108)
+
+\App::App\BaseModel
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  3/  3)
+\App\Components::App\Components\QueryBuilderComponent
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 36/ 36)
+\App\Components::App\Components\Users
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% (  5/  5)
+\App\Console::App\Console\Kernel
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  4/  4)
+\App\Http\Controllers::App\Http\Controllers\ProjectsController
+  Methods:  50.00% ( 2/ 4)   Lines:  80.00% (  8/ 10)
+\App\Providers::App\Providers\AppServiceProvider
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  2/  2)
+\App\Providers::App\Providers\AuthServiceProvider
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\App\Providers::App\Providers\EventServiceProvider
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\App\Providers::App\Providers\RouteServiceProvider
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 14/ 14)
