@@ -84,6 +84,13 @@
                     Hello Ucreate
                 </div>
 
+                <div>
+                    <h3>The data result will be displayed below:</h3>
+                    <div id="result" style="padding-bottom: 25px;color: firebrick;font-size: large;">
+                        Currently there is no data to show
+                    </div>
+                </div>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -114,10 +121,9 @@
         // Create a state change callback 
         xhr.onreadystatechange = function () { 
             if (xhr.readyState === 4 && xhr.status === 200) {
-                console.log(this.responseText);
+                document.getElementById("result").innerHTML = this.responseText
             } 
-        }; 
-
+        };        
         // Sending data with the request 
         xhr.send(data);
     }
