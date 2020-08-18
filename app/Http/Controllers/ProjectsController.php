@@ -39,8 +39,7 @@ class ProjectsController extends Controller
 
     public function showTimeline(Request $request)
     {
-        // $data = json_decode($request->all(), true);
-        dd($request->all());
-        die('here');
+        echo json_encode($request->all());
+        die();
     }
 }
