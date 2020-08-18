@@ -22,3 +22,5 @@ Route::post('/projects', 'ProjectsController@store');
 Route::post('/department', 'ProjectsController@saveDepartment');
 Route::get('/register', 'ProjectsController@register');
 Route::post('/register', 'ProjectsController@register');
+
+Route::post('/timeline-data', 'ProjectsController@showTimeline');

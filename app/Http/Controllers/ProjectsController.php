@@ -36,4 +36,11 @@ class ProjectsController extends Controller
     {
         return view('register');
     }
+
+    public function showTimeline(Request $request)
+    {
+        // $data = json_decode($request->all(), true);
+        dd($request->all());
+        die('here');
+    }
 }
